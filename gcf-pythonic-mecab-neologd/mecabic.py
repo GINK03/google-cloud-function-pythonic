@@ -6,20 +6,17 @@ try:
   obj = json.loads(input())
 except:
   ...
-try:
-  os.system('sh ./gcs_mount.sh 2>&1 > /dev/null')
-  #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './credentials.json'
-  os.environ['PATH'] = './usr/bin/mecab:%s'%os.environ['PATH'] 
-  if os.environ.get('LD_LIBRARY_PATH') is not None:
-    os.environ['LD_LIBRARY_PATH'] = './usr/lib:%s'%os.environ['LD_LIBRARY_PATH']
-  else: 
-    os.environ['LD_LIBRARY_PATH'] = './usr/lib'
+#try:
+os.system('sh ./gcs_mount.sh  > /dev/null')
+#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './credentials.json'
+PWD=os.environ['PWD']
+os.environ['PATH'] = PWD + '/local/bin/mecab:%s'%os.environ['PATH'] 
+os.environ['LD_LIBRARY_PATH'] = os.getcwd()
+import MeCab
+mecabrc = PWD + '/local/etc/mecabrc'
+m = MeCab.Tagger('-Owakati -d ./nardtree-nlp-dicts/mecab-ipadic-neologd -r ' + mecabrc)
 
-  import MeCab
-
-  m = MeCab.Tagger('-Owakati -d ./nardtree-nlp-dicts/mecab-ipadic-neologd')
-
-  wakati = m.parse('艦これとアズールレーンとアルペジオ').strip()
-  print(wakati)
-except Exception as ex:
-  print(ex)
+wakati = m.parse('艦これとアズールレーンとアルペジオ').strip()
+print(wakati)
+#except Exception as ex:
+#  print("Exception", ex)
