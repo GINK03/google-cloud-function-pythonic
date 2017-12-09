@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+import os
+import sys
+
+os.system('curl -X POST -H "Content-Type:application/json"  -d \'{"secret":"' + sys.argv[1] + '"}\' http://localhost:8010/machine-learning-173502/us-central1/pycall')
