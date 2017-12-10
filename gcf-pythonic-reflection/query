@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+import os
+import sys
+
+os.system('curl -X POST -H "Content-Type:application/json"  -ld \'{"secret":"none"}\' http://us-central1-wild-yukikaze.cloudfunctions.net/reflection')
