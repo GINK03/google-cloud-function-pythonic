@@ -1,0 +1,92 @@
+Metadata-Version: 2.0
+Name: google-cloud-logging
+Version: 1.4.0
+Summary: Python Client for Stackdriver Logging
+Home-page: https://github.com/GoogleCloudPlatform/google-cloud-python
+Author: Google Cloud Platform
+Author-email: googleapis-publisher@google.com
+License: Apache 2.0
+Platform: Posix; MacOS X; Windows
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet
+Requires-Dist: gapic-google-cloud-logging-v2 (<0.92dev,>=0.91.0)
+Requires-Dist: google-api-core (>=0.1.1,<0.2.0dev)
+Requires-Dist: google-cloud-core[grpc] (>=0.28.0,<0.29dev)
+
+Python Client for Stackdriver Logging
+=====================================
+
+    Python idiomatic client for `Stackdriver Logging`_
+
+.. _Stackdriver Logging: https://cloud.google.com/logging/
+
+|pypi| |versions|
+
+-  `Documentation`_
+
+.. _Documentation: https://googlecloudplatform.github.io/google-cloud-python/latest/logging/usage.html
+
+Quick Start
+-----------
+
+.. code-block:: console
+
+    $ pip install --upgrade google-cloud-logging
+
+Fore more information on setting up your Python development environment, such as installing ``pip`` and on your system, please refer to `Python Development Environment Setup Guide`_ for Google Cloud Platform.
+
+.. _Python Development Environment Setup Guide: https://cloud.google.com/python/setup
+
+Authentication
+--------------
+
+With ``google-cloud-python`` we try to make authentication as painless as
+possible. Check out the `Authentication section`_ in our documentation to
+learn more. You may also find the `authentication document`_ shared by all
+the ``google-cloud-*`` libraries to be helpful.
+
+.. _Authentication section: https://google-cloud-python.readthedocs.io/en/latest/core/auth.html
+.. _authentication document: https://github.com/GoogleCloudPlatform/google-cloud-common/tree/master/authentication
+
+Using the API
+-------------
+
+`Stackdriver Logging`_ API (`Logging API docs`_) allows you to store, search,
+analyze, monitor, and alert on log data and events from Google Cloud Platform.
+
+.. _Logging API docs: https://cloud.google.com/logging/docs/
+
+.. code:: python
+
+    from google.cloud import logging
+    client = logging.Client()
+    logger = client.logger('log_name')
+    logger.log_text('A simple entry')  # API call
+
+Example of fetching entries:
+
+.. code:: python
+
+    for entry in logger.list_entries():
+        print(entry.payload)
+
+See the ``google-cloud-python`` API `logging documentation`_ to learn how to
+connect to Stackdriver Logging using this Client Library.
+
+.. _logging documentation: https://googlecloudplatform.github.io/google-cloud-python/latest/logging/usage.html
+
+.. |pypi| image:: https://img.shields.io/pypi/v/google-cloud-logging.svg
+   :target: https://pypi.org/project/google-cloud-logging/
+.. |versions| image:: https://img.shields.io/pypi/pyversions/google-cloud-logging.svg
+   :target: https://pypi.org/project/google-cloud-logging/
+
+
