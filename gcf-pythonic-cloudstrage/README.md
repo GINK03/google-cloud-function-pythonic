@@ -8,7 +8,8 @@ pypi
 https://pypi.python.org/pypi/google-cloud-storage
 
 
-official snipette
+official snipette  
+
 https://github.com/GoogleCloudPlatform/google-cloud-python/blob/master/docs/storage/snippets.py
 
 ## upload
