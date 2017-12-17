@@ -5,7 +5,7 @@
 LambdaがPython,js,Goなどをサポートしているのに比べて、Cloud Functionはjsのみのサポートとなっていています  
 
 **目次**
-- **A. nodejsでしか動かないはずのCloud FunctionでPythonを使**  
+- **A. nodejsでしか動かないはずのCloud FunctionでPythonを使う**  
 - **B. gcloud-toolのインストール**  
 - **C. コード書いてデプロイする**  
 - **D. リクエストを送ってみる**
