@@ -83,9 +83,9 @@ $ curl https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
 https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
 
 ## python3(pypy3)を無理くり使う
-色々試した結果、いろんな環境で動くように調整されたコンパイル済みで、環境依存の少ないpypy3を利用することで、Google Cloud Functionを利用できる  
+色々試した結果、いろんな環境で動くように調整されたコンパイル済みで、環境依存の少ないpypy3を利用することで、Google Cloud Functionを利用できることがわかりました（どうしてもPython3を使いたい主義）
 
-https://pypy.org/download.html
+[PyPy](https://pypy.org/download.html)
 
 ```console
 $ bzip2 -d pypy3-v5.9.0-linux64.tar.bz2
