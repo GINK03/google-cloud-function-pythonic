@@ -1,6 +1,6 @@
 # Google Cloud Function Pythonic
 
-## nodejsでしか動かないはずのCloud FunctionでPythonを使う　
+## A. nodejsでしか動かないはずのCloud FunctionでPythonを使う　
 
 ### 1. 環境依存がないPyPy3を利用する
 
@@ -13,7 +13,10 @@ OSがDebianでversionがよくわかっていません、そのため、手元�
 など、PurePythonで記述されたものと、PyPyで正式にサポートされているnumpyなどは動作します  
 
 ## 3. PyPy3にライブラリをインストール
-
+pipはサポートされているので、このように任意の（限定はされていますが）インストールすることができます  
+```console
+$ ./pypy3-v5.9.0-linux64/bin/pypy3 -m pip install flask
+```
 
 ## node version manager(nvm)のインストール
 ```console
