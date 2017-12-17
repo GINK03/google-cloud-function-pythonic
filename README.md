@@ -5,7 +5,8 @@
 ### 1. 環境依存がないPyPy3を利用する
 
 ### 2. 動作が期待できるライブラリ
-OSがDebianでversionがよくわかっていません、そのため、手元のLinuxなどでコンパイルが必要なライブラリをコンパイルして送っても、動作しないことがあります。  
+OSがDebianでversionがよくわかっていません、そのため、手元のLinuxなどでコンパイルが必要なライブラリをコンパイルして送っても、動作しないことがあります。  
+
 どうしても動作させたいライブラリがある場合はCloud FunctionのLinuxのlibcやインストールされているshared objectを分析調査するスクリプトを別途記述して、確認する必要があります  
 - 1. numpy 
 - 2. requests
@@ -18,53 +19,45 @@ pipはサポートされているので、このように任意の（限定は�
 $ ./pypy3-v5.9.0-linux64/bin/pypy3 -m pip install flask
 ```
 
-## node version manager(nvm)のインストール
-```console
-$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
-```
-## nodejsのインストール
-```console
-$ nvm install node
-```
+## B. gcloud-toolのインストール 
+任意のLinuxで動作する方法を示します。  
+何度かこのツールを使っていますが、aptやyumレポジトリを利用するより、直接バイナリをダウンロードして来た方が安定性が良い気がします  
 
-## gcloud install 
-絶対ソースからやった方が安定性がいい
-https://cloud.google.com/sdk/docs/?hl=ja
-ここのlinuxを選択すること 
+[Google](https://cloud.google.com/sdk/docs/?hl=ja)からダウンロードすることができます
 
 ```console
-$ wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-170.0.1-linux-x86_64.tar.gz?hl=ja
+$ wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-170.0.1-linux-x86_64.tar.gz
 $ tar zxvf google-cloud-sdk-170.0.1-linux-x86_64.tar.gz?hl=ja
 $ ./google-cloud-sdk/install.sh
 $ ./google-cloud-sdk/bin/gcloud init
+(各種、認証が求められるので、通しましょう)
 ```
 
-.bashrcにこの記述を追加する
+.bashrcにこの記述を追加すると、相対パスを入力しなくても使えます
 ```
 PATH=$HOME/google-cloud-sdk/bin:$PATH
 ```
 
-## gcloud init, and enable beta
+Cloud Functionはオプション扱いらしく、こうすることで正しくインストールすることができます
 ```console
 $ gcloud components update beta && gcloud components install
 ```
-Error出ても気にしない
 
-## cloud functionのコードやバイナリを置くbacketを作る
+Cloud Functionのコードやバイナリを置くbacketを作ります
 ```console
 $ gsutil mb gs://{YOUR_STAGING_BUCKET_NAME}
 ```
 
-## コード書いて、push
-必ずディレクトリを作ってその中で完結させる必要がある
+## C. コード書いてデプロイする
+ディレクトリの中で作業すると、そのディレクトリの中身全てがGoogle Cloud Functionのコンテナにデプロイされますので、あまり大きなファイル(55MB程度)はおけないようです
 
-トリガーファイルはindex.jsである必要がある
+エントリーポイント（Cloud Functionが呼びされた時に最初に実行される関数）はindex.jsという風になっています。  
+
+spawnというプロセス間通信を使うと、このJavaScriptのファイルと一緒にデプロイされるPyPy3のバイナリを実行し、結果を得ることができます  
 ```index.js
 const spawnSync = require('child_process').spawnSync;
-
 exports.pycall = function pycall(req, res) {
-
-  result = spawnSync('python', ['./inspect.py'], {
+  result = spawnSync('./pypy3-v5.9.0-linux64/bin/pypy3', ['./inspect.py'], {
     stdio: 'pipe',
   });
 
