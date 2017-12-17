@@ -7,7 +7,8 @@ exports.pycall_instance_controls = function pycall_instance_controls(req, res) {
     input: JSON.stringify(req.query)
   });
   if (result.stdout){
-    res.status(200).send(result.stdout);
+    //res.status(200).send(result.stdout);
+    res.status(200).send(`<!doctype html>` + result.stdout + `</html>`);
   }else if (result.stderr){
     res.status(200).send(result.stderr);
   }

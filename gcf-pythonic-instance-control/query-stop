@@ -2,4 +2,4 @@
 import os
 import sys
 
-os.system('curl https://us-central1-wild-yukikaze.cloudfunctions.net/pycall_instance_controls/pycall_gcs?ops=stop')
+os.system('curl https://us-central1-wild-yukikaze.cloudfunctions.net/pycall_instance_controls?ops=stop')
