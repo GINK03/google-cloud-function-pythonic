@@ -318,4 +318,13 @@ def start_all():
     compute.instances().start( project=project, zone=zone, instance=name).execute()
   print(html.format(body='finished finished all start up', img=imgs[1]))
 ```
+**アイコンは大事**  
+オタクの皆様には語るまでもないですが、印象とユーザビリティを大きく支配するものなので、かわいいが好きなのでかわいい高解像度のアイコンを設定できるかどうかは、わりと死活問題です  
+
+htmlのメタタグにこのようなデータを入れると、高解像度のICONが作れます  
+```html
+<link rel="apple-touch-icon" href={img}/>
+```
+また、ICON画像は外部のサイトを参照させることが可能で、gravatar.comさまの公開URLを利用すると便利です  
+
 
