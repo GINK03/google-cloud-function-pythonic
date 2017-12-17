@@ -277,7 +277,8 @@ exports.pycall_instance_controls = function pycall_instance_controls(req, res) {
   }
 };
 ```
-**instance-control.py**
+**instance-control.py**  
+
 GCPの承認情報をlocalに通してしまって、pypyにgcloud関連をインストールすると、このような闇魔術が使えます  
 ```python
 from oauth2client.client import GoogleCredentials
@@ -327,5 +328,16 @@ htmlのメタタグにこのようなデータを入れると、高解像度のI
 <link rel="apple-touch-icon" href={img}/>
 ```
 また、ICON画像は外部のサイトを参照させることが可能で、gravatar.comさまの公開URLを利用すると便利です  
+
+
+## コード
+[https://github.com/GINK03/google-cloud-function-pythonic]
+
+## まとめ
+Cloud Function面白いですね。  
+ディスクに書き込む作業ができないので、temporaryな処理を書き出す際には、Google Cloud Strageなどの外部のサービスと連携する必要があり、この連携自体、送り込むバイナリに合わせて転送することができるので、実質、なんでもできます  
+しかし、もっとも頭を悩ませたのがリソースの制約で、圧縮して100MBとかを超えると、zipファイルでもデプロイできません。この制約は機械学習を使いたい時、勾配ブースティングと深層学習がきついので、SVMまであたりでの運用となりそうです  
+将来、リソースの緩和で大きなデータが扱えるようになってくると、ほとんどのサービスにおいてサーバレスが実現するかもしれません  
+
 
 
