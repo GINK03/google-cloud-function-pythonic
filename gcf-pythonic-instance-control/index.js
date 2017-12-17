@@ -1,10 +1,10 @@
 const spawnSync = require('child_process').spawnSync;
 
-exports.pycall_gcs = function pycall_gcs(req, res) {
+exports.pycall_instance_controls = function pycall_instance_controls(req, res) {
 
-  result = spawnSync('./pypy3-v5.9.0-linux64/bin/pypy3', ['./cloudstrage-push.py'], {
+  result = spawnSync('./pypy3-v5.9.0-linux64/bin/pypy3', ['./instance-control.py'], {
     stdio: 'pipe',
-    input: JSON.stringify({'headers':req.headers, 'body':req.body, 'query':req.query})
+    input: JSON.stringify(req.query)
   });
   if (result.stdout){
     res.status(200).send(result.stdout);

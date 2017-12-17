@@ -1,1 +1,1 @@
-gcloud beta functions deploy pycall_gcs --stage-bucket nardtree-train-cf --trigger-http
+gcloud beta functions deploy pycall_instance_controls --stage-bucket nardtree-cloud-functions --trigger-http
