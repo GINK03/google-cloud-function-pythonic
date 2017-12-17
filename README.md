@@ -4,6 +4,12 @@
 
 LambdaがPython,js,Goなどをサポートしているのに比べて、Cloud Functionはjsのみのサポートとなっていています  
 
+**目次**
+- **A. nodejsでしか動かないはずのCloud FunctionでPythonを使**  
+- **B. gcloud-toolのインストール**  
+- **C. コード書いてデプロイする**  
+- **D. リクエストを送ってみる**
+- **調査: Cloud FunctionでScraperは使えるか**
 
 ## A. nodejsでしか動かないはずのCloud FunctionでPythonを使う　
 
@@ -103,7 +109,7 @@ https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
 $ curl -X POST -H "Content-Type:application/json"  -d '{"message":"hello world!"}' https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
 ```
 
-## Cloud FunctionでScraperは使えるか
+## 調査: Cloud FunctionでScraperは使えるか
 AWS LambdaではFunctionを実行するたびに、IPなどが変わることがあるので、スクレイパーとしても利用することが期待できるのですが、Google Cloud Functionではどうでしょうか  
 
 1000回、Cloud Functionを呼び出して、その時のGlobal IPを調べて、どのような分布になっているか調べました  
@@ -122,5 +128,3 @@ AWS LambdaではFunctionを実行するたびに、IPなどが変わることが
 ```
 IPという視点で見ると、効率的に使うことは現時点ではあまり期待できなそうです
 
-107.178.236.8 6 
-107.178.236.8 6 
