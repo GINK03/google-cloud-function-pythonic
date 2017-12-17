@@ -187,6 +187,49 @@ $ curl  https://us-central1-wild-yukikaze.cloudfunctions.net/reflection2
 これらの複雑なJavaScriptを受け取り、Cloud Strage(AWS S3のようなもの)に書き込むことができれば、サーバレスで行動ログを測定 -> 保存までできます。  
 さらに、DataFlowともプロセスをつなぐことができますので、実質的に、**集計項目の設計、JSの実装（これは外部）、デプロイ、測定、分析、施策**がEnd2Endでできやすくなって、素早いイテレーションを回せそうで、すごくいいです
 
-**javascriptはわからないので割愛します**
-```console
+**ブラウザ側のjavascriptは割愛します**
+
+**index.js**  
+header, post, getなどの全てのパラメータをpythonに渡します  
+```index.js
+const spawnSync = require('child_process').spawnSync;
+exports.pycall_gcs = function pycall_gcs(req, res) {
+  result = spawnSync('./pypy3-v5.9.0-linux64/bin/pypy3', ['./cloudstrage-push.py'], {
+    stdio: 'pipe',
+    input: JSON.stringify({'headers':req.headers, 'body':req.body, 'query':req.query})
+  });
+  if (result.stdout){
+    res.status(200).send(result.stdout);
+  }else if (result.stderr){
+    res.status(200).send(result.stderr);
+  }
+};
+```
+**cloudstrage-push.py**  
+googleのCloud Strageに書き込む権限を与えたcredentialファイルと共にdeployして、ユーザやアクセス度（ここは適切だろう粒度で設計する必要があります）でuuidやhashで、blob(Cloud Strageにおけるファイル単位)を作り、書き込んで行くことができます  
+```cloudstrage-push.py
+import os
+import zipfile
+import json
+import uuid
+import sys
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './credentials.json'
+raw = input()
+try:
+  from google.cloud import storage
+  from google.cloud.storage import Blob
+  client = storage.Client()
+  bucket = client.get_bucket('wired-ant')
+  print(bucket, file=sys.stderr)
+  uuid = '%s.shard'%uuid.uuid4()
+  blob = bucket.get_blob(uuid)
+  if blob is None:
+    print(blob, file=sys.stderr)
+    blob = Blob(uuid, bucket)
+    source = ''
+  else:
+    source = blob.download_as_string().decode()
+  blob.upload_from_string( source + raw + '\n', content_type='text/plain')
+except Exception as ex:
+  print(ex)
 ```
