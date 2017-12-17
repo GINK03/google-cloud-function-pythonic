@@ -1,3 +1,19 @@
+# Google Cloud Function Pythonic
+
+## nodejsでしか動かないはずのCloud FunctionでPythonを使う　
+
+### 1. 環境依存がないPyPy3を利用する
+
+### 2. 動作が期待できるライブラリ
+OSがDebianでversionがよくわかっていません、そのため、手元のLinuxなどでコンパイルが必要なライブラリをコンパイルして送っても、動作しないことがあります。  
+どうしても動作させたいライブラリがある場合はCloud FunctionのLinuxのlibcやインストールされているshared objectを分析調査するスクリプトを別途記述して、確認する必要があります  
+- 1. numpy 
+- 2. requests
+- 3. BeautifulSoup4
+など、PurePythonで記述されたものと、PyPyで正式にサポートされているnumpyなどは動作します  
+
+## 3. PyPy3にライブラリをインストール
+
 
 ## node version manager(nvm)のインストール
 ```console
