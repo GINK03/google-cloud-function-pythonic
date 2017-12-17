@@ -1,5 +1,9 @@
 # Google Cloud Function Pythonic
 
+世間ではAWS Lambdaばかり着目されますが、GoogleもCloud Functionと呼ばれるLambdaに相当する機能を提供しています  
+LambdaがPython,js,Goなどをサポートしているのに比べて、Cloud Functionはjsのみのサポートとなっていています  
+
+
 ## A. nodejsでしか動かないはずのCloud FunctionでPythonを使う　
 
 ### 1. 環境依存がないPyPy3を利用する
