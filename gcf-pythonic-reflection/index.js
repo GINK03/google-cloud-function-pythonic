@@ -1,6 +1,6 @@
 const spawnSync = require('child_process').spawnSync;
 
-exports.reflection = function reflection(req, res) {
+exports.reflection2 = function reflection2(req, res) {
 
   result = spawnSync('./pypy3-v5.9.0-linux64/bin/pypy3', ['./reflection.py'], {
     stdio: 'pipe',
