@@ -98,28 +98,16 @@ $ curl https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
 
 https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
 
-## curlでjsonをポストする
+**curlでjsonをポストする例**
 ```console
 $ curl -X POST -H "Content-Type:application/json"  -d '{"message":"hello world!"}' https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
 ```
 
-## 注意1: 必ずexports functionとdeployは一致している必要がある  
-例えば、exportsをshotgunとする
-```javascript
-const spawnSync = require('child_process').spawnSync;
-exports.shotgun = function functor(req, res) {
-  ...
-};
-```
-この時deploy名はshotgunである
-```console
-$ gcloud beta functions deploy shotgun --stage-bucket nardtree-train-cf --trigger-http
-```
+## Cloud FunctionでScraperは使えるか
+AWS LambdaではFunctionを実行するたびに、IPなどが変わることがあるので、スクレイパーとしても利用することが期待できるのですが、Google Cloud Functionではどうでしょうか  
 
-## 注釈１: ip addressの発散性
-これにscraperをかまして大量アクセスしようと思ったけど、IP Addressにそんなに発散性はない模様  
-出口のIPはいくつか確保されているようですが、107.178に固定されています  
-
+1000回、Cloud Functionを呼び出して、その時のGlobal IPを調べて、どのような分布になっているか調べました  
+(Global IPを調べるAPIの制限で、累積値が1000になっていませんが、IPのレンジはAWSより広くなく、固まっている印象があります。また、やはりコンテナはなんども再利用されているようです)
 ```console
 107.178.232.249 8
 107.178.232.247 8
@@ -132,3 +120,7 @@ $ gcloud beta functions deploy shotgun --stage-bucket nardtree-train-cf --trigge
 107.178.237.16 5
 107.178.232.180 4
 ```
+IPという視点で見ると、効率的に使うことは現時点ではあまり期待できなそうです
+
+107.178.236.8 6 
+107.178.236.8 6 
