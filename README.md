@@ -254,3 +254,9 @@ AWS Lambdaなどを繋ぎに、各種サービスをつないでいっていっ�
 試しに、GCPで私が契約しているリージョンのインスタンスを出社して作業を開始する前に、**一括起動**し、**IPアドレスを確認**し、帰り際に**一括シャットダウン**します  
 
 例えば、iPhoneのホームボタンにはURLショートカットを載せることができて、urlショートカットにはurlパラメータを載せることができます。つまり、iPhoneの画面上で動作する、Amazon Dash Button的なものを作ることができるのです！のです！
+
+<p align="center">
+  <img width="700px" src="https://user-images.githubusercontent.com/4949982/34082385-83a87dfc-e3a0-11e7-886f-55fb4235811d.png">
+</p>
+<div align="center"> 実際作ったCloud Functionへのショートカット、タップするだけでGCPがコントロールできて便利 </div>
+
