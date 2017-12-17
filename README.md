@@ -69,13 +69,13 @@ exports.pycall = function pycall(req, res) {
 };
 ```
 
-push  
+デプロイはこのように行います
 ```console
-$ gcloud beta functions deploy pycall --stage-bucket nardtree-trial-cf --trigger-http
+$ gcloud beta functions deploy ${YOUR_CLOUD_FUNCTION_NAME} --stage-bucket ${YOUR_STAGING_BUCKET} --trigger-http
 ```
 
-## リクエストを送ってみる
-コードをデプロイしたタイミングでapiのURLが発行されるので、それを利用する
+## D. リクエストを送ってみる
+コードをデプロイしたタイミングでapiのURLが標準出力に表示されるので、そのURLを参照すると、Cloud Functionが実行されます
 ```console
 $ curl https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
 ```
