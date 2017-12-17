@@ -133,3 +133,19 @@ IPという視点で見ると、効率的に使うことは現時点ではあま
 やってて思ったのですが、自分のマシンにscpで外部からデータを持ってこようという時に、いちいちiPhoneに記されたIPアドレス帳を参照していたのですが、コマンドを叩いてverboseを利用するより個人的には、jqなどのコマンドで確認できる方が望ましいと考えています  
 
 そのため、リクエスト送信元のheaderをjsonに変換してそのままインデントをつけて返します
+
+**index.js**
+```index.js
+const spawnSync = require('child_process').spawnSync;
+exports.reflection = function reflection(req, res) {
+  result = spawnSync('./pypy3-v5.9.0-linux64/bin/pypy3', ['./reflection.py'], {
+    stdio: 'pipe',
+    input: JSON.stringify(req.headers)
+  });
+  if (result.stdout){
+    res.status(200).send(result.stdout);
+  }else if (result.stderr){
+    res.status(200).send(result.stderr);
+  }
+};
+```
