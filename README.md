@@ -11,7 +11,7 @@ LambdaがPython,js,Goなどをサポートしているのに比べて、Cloud Fu
 - **D. リクエストを送ってみる**
 - **調査: Cloud FunctionでScraperは使えるか**
 - **例: リクエスト送った人のGlobal IPを返すだけの例**
-- **例: 
+- **例: （ユーザ行動などのIoT情報を取得する）ビーコンのデータを受け取りCloud Strageに格納する**
 
 ## A. nodejsでしか動かないはずのCloud FunctionでPythonを使う　
 
@@ -180,3 +180,9 @@ $ curl  https://us-central1-wild-yukikaze.cloudfunctions.net/reflection2
   "accept-encoding": "gzip"
 }
 ```
+
+## （ユーザ行動などのIoT情報を取得する）ビーコンのデータを受け取りCloud Strageに格納する
+アドテクというか、ユーザのサイト内での回遊情報を調べるのに一般的に、ページのどこまでを視認したか、スクロールしたか、PCなのかスマホなのか、画面のサイズは、ブラウザは、オーガニック検索なのか、直帰率はどうなのか、マウスオーバー情報はどうなのか、といった視点がJavaScriptで取得可能であることは、広く知られたことだと思います  
+
+```consoleない
+```console
