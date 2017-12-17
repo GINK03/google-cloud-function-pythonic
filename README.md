@@ -186,7 +186,10 @@ $ curl  https://us-central1-wild-yukikaze.cloudfunctions.net/reflection2
 
 これらの複雑なJavaScriptを受け取り、Cloud Strage(AWS S3のようなもの)に書き込むことができれば、サーバレスで行動ログを測定 -> 保存までできます。  
 さらに、DataFlowともプロセスをつなぐことができますので、実質的に、**集計項目の設計、JSの実装（これは外部）、デプロイ、測定、分析、施策**がEnd2Endでできやすくなって、素早いイテレーションを回せそうで、すごくいいです
-
+<p align="center">
+  <img width="750px" src="https://user-images.githubusercontent.com/4949982/34081784-fb731370-e395-11e7-93b2-b1292e57a139.png">
+</p>
+<div align="center"> こんな感じのEnd2Endで観測、集計、分析までできたらうれしい！</div>
 **ブラウザ側のjavascriptは割愛します**
 
 **index.js**  
