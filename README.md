@@ -149,3 +149,33 @@ exports.reflection = function reflection(req, res) {
   }
 };
 ```
+**reflection.py**
+```reflection.py
+import json
+print(json.dumps(json.loads(input()), indent=2))
+```
+デプロイしてクエリを投げてみます  
+```console
+$ sh deploy.sh 
+$ curl  https://us-central1-wild-yukikaze.cloudfunctions.net/reflection2
+```
+出力結果はjsonフォーマットで、最初から結構見やすい!
+```console
+$ curl  https://us-central1-wild-yukikaze.cloudfunctions.net/reflection2
+{
+  "host": "us-central1-wild-yukikaze.cloudfunctions.net",
+  "user-agent": "curl/7.55.1",
+  "accept": "*/*",
+  "function-execution-id": "03jbvskqvfyu",
+  "x-appengine-api-ticket": "a140cc827b21f195",
+  "x-appengine-city": "arakawa",
+  "x-appengine-citylatlong": "35.736080,139.783369",
+  "x-appengine-country": "JP",
+  "x-appengine-https": "on",
+  "x-appengine-region": "13",
+  "x-appengine-user-ip": "118.241.189.54",
+  "x-cloud-trace-context": "8ab2a49b8cd1c80b068daaafda2c85a1/10677056975691001014;o=1",
+  "x-forwarded-for": "118.241.189.54",
+  "accept-encoding": "gzip"
+}
+```
