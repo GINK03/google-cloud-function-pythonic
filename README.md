@@ -10,6 +10,7 @@ LambdaがPython,js,Goなどをサポートしているのに比べて、Cloud Fu
 - **C. コード書いてデプロイする**  
 - **D. リクエストを送ってみる**
 - **調査: Cloud FunctionでScraperは使えるか**
+- **リクエスト送った人のGlobal IPを返すだけの例**
 
 ## A. nodejsでしか動かないはずのCloud FunctionでPythonを使う　
 
