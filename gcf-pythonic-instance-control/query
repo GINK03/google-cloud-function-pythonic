@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+import os
+import sys
+
+os.system('curl -X POST -H "Content-Type:application/json"  -d \'{"secret":"' + sys.argv[1] + '"}\' https://us-central1-machine-learning-173502.cloudfunctions.net/pycall_gcs?secret2=' + sys.argv[1])
