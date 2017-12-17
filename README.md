@@ -15,6 +15,10 @@ $ bzip2 -d pypy3-v5.9.0-linux64.tar.bz2
 $ tar xvf pypy3-v5.9.0-linux64.tar
 $ mv pypy3-v5.9.0-linux64 {YOUR_GOOGLE_CLOUD_FUNCTION_DIR}
 ```
+pipの機能を有効化します
+```console
+$ ./pypy3-v5.9.0-linux64/bin/pypy3 -m ensurepip
+```
 
 ### 2. 動作が期待できるライブラリ
 OSがDebianでversionがよくわかっていません、そのため、手元のLinuxなどでコンパイルが必要なライブラリをコンパイルして送っても、動作しないことがあります。  
@@ -93,14 +97,6 @@ $ curl https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
 ```
 
 https://us-central1-machine-learning-173502.cloudfunctions.net/pycall
-
-## python3(pypy3)を無理くり使う
-
-
-### pipをpypyに組み込む
-```console
-$ ./pypy3 -m ensurepip
-```
 
 ## curlでjsonをポストする
 ```console
