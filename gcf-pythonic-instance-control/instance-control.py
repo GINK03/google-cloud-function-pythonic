@@ -22,7 +22,7 @@ def stop_all():
   instances = compute.instances().list(project=project, zone=zone).execute()
   for instance in instances['items']:
     name = instance.get('name')
-    compute.instances().delete( project=project, zone=zone, instance=name).execute()
+    compute.instances().stop( project=project, zone=zone, instance=name).execute()
   print('finished')
 
 def start_all():
