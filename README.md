@@ -12,6 +12,7 @@ LambdaがPython,js,Goなどをサポートしているのに比べて、Cloud Fu
 - **調査: Cloud FunctionでScraperは使えるか**
 - **例: リクエスト送った人のGlobal IPを返すだけの例**
 - **例: （ユーザ行動などのIoT情報を取得する）ビーコンのデータを受け取りCloud Strageに格納する**
+- **例: Amazon Dash Buttonより便利な、クラウド操作ボタンをスマホに作る**
 
 ## A. nodejsでしか動かないはずのCloud FunctionでPythonを使う　
 
