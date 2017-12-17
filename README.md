@@ -237,3 +237,9 @@ try:
 except Exception as ex:
   print(ex)
 ```
+試しに自分の無料のGCP枠で自分のgithub.ioに入れてやって見ましたけど、期待した通り動作していることを確認しました。  
+ただ、上書きが一度ロードしてからでないとできないので、何かうまくchunkingする方法を考えている次第です(しないという手もあります)。  
+<p align="center">
+  <img width="750px" src="https://user-images.githubusercontent.com/4949982/34081932-fe763a40-e398-11e7-8031-7d40fc11744e.png">
+</p>
+<div align="center"> 自分の行動ログが正しく書き込まれていることが確認できました（ぼっちっぽい）</div>
