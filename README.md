@@ -48,7 +48,8 @@ $ ./pypy3-v5.9.0-linux64/bin/pypy3 -m pip install flask
 ```
 
 ## B. gcloud-toolのインストール 
-任意のLinuxで動作する方法を示します。  
+任意のLinuxで動作する方法を示します  
+
 何度かこのツールを使っていますが、aptやyumレポジトリを利用するより、直接バイナリをダウンロードして来た方が安定性が良い気がします  
 
 [Google](https://cloud.google.com/sdk/docs/?hl=ja)からダウンロードすることができます
