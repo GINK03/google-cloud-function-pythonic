@@ -336,7 +336,7 @@ htmlのメタタグにこのようなデータを入れると、高解像度のI
 ## コード
 [https://github.com/GINK03/google-cloud-function-pythonic]
 
-## まとめ
+## E. まとめ
 Cloud Function面白いですね  
 
 ディスクに書き込む作業ができないので、temporaryな処理を書き出す際には、Google Cloud Strageなどの外部のサービスと連携する必要がありますが、pipで各種モジュールをインストールできますので、なんでもできます  
