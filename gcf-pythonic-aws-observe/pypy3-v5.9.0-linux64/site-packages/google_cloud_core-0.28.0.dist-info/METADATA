@@ -1,0 +1,54 @@
+Metadata-Version: 2.0
+Name: google-cloud-core
+Version: 0.28.0
+Summary: API Client library for Google Cloud: Core Helpers
+Home-page: https://github.com/GoogleCloudPlatform/google-cloud-python
+Author: Google Cloud Platform
+Author-email: googleapis-publisher@google.com
+License: Apache 2.0
+Platform: Posix; MacOS X; Windows
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet
+Requires-Dist: google-api-core (<0.2.0dev,>=0.1.1)
+Provides-Extra: grpc
+Requires-Dist: grpcio (>=1.7.0); extra == 'grpc'
+
+Core Helpers for Google Cloud Python Client Library
+===================================================
+
+This library is not meant to stand-alone. Instead it defines
+common helpers (e.g. base ``Client`` classes) used by all of the
+``google-cloud-*`` packages.
+
+|pypi| |versions|
+
+-  `Documentation`_
+
+.. _Documentation: https://googlecloudplatform.github.io/google-cloud-python/latest/core/modules.html
+
+Quick Start
+-----------
+
+.. code-block:: console
+
+    $ pip install --upgrade google-cloud-core
+
+Fore more information on setting up your Python development environment, such as installing ``pip`` and on your system, please refer to `Python Development Environment Setup Guide`_ for Google Cloud Platform.
+
+.. _Python Development Environment Setup Guide: https://cloud.google.com/python/setup
+
+.. |pypi| image:: https://img.shields.io/pypi/v/google-cloud-core.svg
+   :target: https://pypi.org/project/google-cloud-core/
+.. |versions| image:: https://img.shields.io/pypi/pyversions/google-cloud-core.svg
+   :target: https://pypi.org/project/google-cloud-core/
+
+

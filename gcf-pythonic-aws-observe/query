@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+import os
+import sys
+
+os.system('curl https://us-central1-wild-yukikaze.cloudfunctions.net/pycall_aws_observe?secret=' + sys.argv[1])

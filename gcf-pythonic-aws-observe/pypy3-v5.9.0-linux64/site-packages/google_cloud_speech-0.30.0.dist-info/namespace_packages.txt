@@ -1,0 +1,6 @@
+google
+google.cloud
+google.cloud.gapic
+google.cloud.gapic.speech
+google.cloud.proto
+google.cloud.proto.speech
